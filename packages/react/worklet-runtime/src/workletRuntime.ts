@@ -11,6 +11,7 @@ import { profile } from './utils/profile.js';
 import { getFromWorkletRefMap, initWorkletRef } from './workletRef.js';
 
 function initWorklet(): void {
+  console.log('initializing...');
   globalThis.lynxWorkletImpl = {
     _workletMap: {},
     _refImpl: initWorkletRef(),
@@ -19,7 +20,9 @@ function initWorklet(): void {
     _eventDelayImpl: initEventDelay(),
   };
 
+  console.log('isRunOnBackgroundEnabled?', isRunOnBackgroundEnabled());
   if (isRunOnBackgroundEnabled()) {
+    console.log('in run on background');
     globalThis.lynxWorkletImpl._jsFunctionLifecycleManager = new JsFunctionLifecycleManager();
   }
 
