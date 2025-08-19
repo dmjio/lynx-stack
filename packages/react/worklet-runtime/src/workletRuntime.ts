@@ -20,8 +20,9 @@ function initWorklet(): void {
     _eventDelayImpl: initEventDelay(),
   };
 
-  console.log('isRunOnBackgroundEnabled?', isRunOnBackgroundEnabled());
-  if (isRunOnBackgroundEnabled()) {
+  console.log('isRunOnBackgroundEnabled?');
+  // if (isRunOnBackgroundEnabled()) {
+  if (true) {
     console.log('in run on background');
     globalThis.lynxWorkletImpl._jsFunctionLifecycleManager = new JsFunctionLifecycleManager();
   }
